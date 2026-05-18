@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <title>Dashboard Website</title>
+
+  <style>
+
+    body{
+      font-family:Arial;
+      margin:0;
+      background:url("https://images.unsplash.com/photo-1511497584788-876760111969");
+      background-size:cover;
+      background-position:center;
+    }
+
+    .navbar{
+      background:rgba(0,80,40,0.7);
+      color:white;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:10px 20px;
+    }
+
+    .logo img{
+      width:60px;
+      height:60px;
+      border-radius:50%;
+      object-fit:cover;
+    }
+
+    .name{
+      font-size:20px;
+      font-weight:bold;
+    }
+
+    .aboutBtn{
+      cursor:pointer;
+      font-size:18px;
+    }
+
+    .container,
+    .dashboard,
+    .projectPage,
+    .taskPage,
+    .messagePage,
+    .aboutPage{
+
+      width:320px;
+      background:rgba(255,255,255,0.85);
+      margin:60px auto;
+      padding:20px;
+      text-align:center;
+      border-radius:15px;
+
+    }
+
+    input{
+      width:90%;
+      padding:10px;
+      margin:10px;
+      border:none;
+      border-radius:5px;
+    }
+
+    button{
+      width:95%;
+      padding:10px;
+      margin-top:10px;
+      background:darkgreen;
+      color:white;
+      border:none;
+      border-radius:5px;
+    }
+
+    h2{
+      color:darkgreen;
+    }
+
+    .dashboard,
+    .projectPage,
+    .taskPage,
+    .messagePage,
+    .aboutPage{
+      display:none;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div class="navbar">
+
+    <div class="logo">
+
+      <img src="logo.png">
+
+    </div>
+
+    <div class="name">
+
+      KONDIBOYINA DOONDI SRI RAM HANUMAN
+
+    </div>
+
+    <div class="aboutBtn" id="aboutBtn">
+
+      About Us
+
+    </div>
+
+  </div>
+
+  <div class="container" id="loginBox">
+
+    <h2>Login</h2>
+
+    <input type="text"
+    id="username"
+    placeholder="Enter Username">
+
+    <input type="password"
+    id="password"
+    placeholder="Enter Password">
+
+    <button id="loginBtn">
+      Login
+    </button>
+
+    <p id="message"></p>
+
+  </div>
+
+  <div class="dashboard" id="dashboard">
+
+    <h2>Welcome</h2>
+
+    <p id="welcomeText"></p>
+
+    <button id="projectBtn">
+      Projects
+    </button>
+
+    <button id="taskBtn">
+      Tasks
+    </button>
+
+    <button id="messageBtn">
+      Messages
+    </button>
+
+  </div>
+
+  <div class="projectPage" id="projectPage">
+
+    <h2>My Projects</h2>
+
+    <p>Mini E-Commerce Website</p>
+
+    <p>Login Dashboard Website</p>
+
+    <p>Heart Disease Prediction</p>
+
+    <button onclick="back()">
+      Back
+    </button>
+
+  </div>
+
+  <div class="taskPage" id="taskPage">
+
+    <h2>My Tasks</h2>
+
+    <p>Complete HTML Practice</p>
+
+    <p>Complete CSS Practice</p>
+
+    <p>Learn JavaScript DOM</p>
+
+    <button onclick="back()">
+      Back
+    </button>
+
+  </div>
+
+  <div class="messagePage" id="messagePage">
+
+    <h2>Messages</h2>
+
+    <p>Welcome to Dashboard Website</p>
+
+    <p>Practice Daily</p>
+
+    <button onclick="back()">
+      Back
+    </button>
+
+  </div>
+
+  <div class="aboutPage" id="aboutPage">
+
+    <h2>About Me</h2>
+
+    <p>
+      Name :
+      KONDIBOYINA DOONDI SRI RAM HANUMAN
+    </p>
+
+    <p>
+      Role :
+      Frontend Developer
+    </p>
+
+    <p>
+      Location :
+      Vijayawada
+    </p>
+
+    <p>
+      Skills :
+      HTML, CSS, JavaScript, Java
+    </p>
+
+    <button onclick="aboutBack()">
+      Back
+    </button>
+
+  </div>
+
+<script>
+
+let loginBtn =
+document.getElementById("loginBtn");
+
+loginBtn.addEventListener("click", login);
+
+function login(){
+
+  let username =
+  document.getElementById("username").value;
+
+  let password =
+  document.getElementById("password").value;
+
+  if(username == "" || password == ""){
+
+    document.getElementById("message").innerHTML =
+    "Enter All Details";
+
+  }
+
+  else{
+
+    document.getElementById("loginBox").style.display =
+    "none";
+
+    document.getElementById("dashboard").style.display =
+    "block";
+
+    document.getElementById("welcomeText").innerHTML =
+    "Hello " + username;
+
+  }
+
+}
+
+let projectBtn =
+document.getElementById("projectBtn");
+
+projectBtn.addEventListener("click", project);
+
+function project(){
+
+  document.getElementById("dashboard").style.display =
+  "none";
+
+  document.getElementById("projectPage").style.display =
+  "block";
+
+}
+
+let taskBtn =
+document.getElementById("taskBtn");
+
+taskBtn.addEventListener("click", task);
+
+function task(){
+
+  document.getElementById("dashboard").style.display =
+  "none";
+
+  document.getElementById("taskPage").style.display =
+  "block";
+
+}
+
+let messageBtn =
+document.getElementById("messageBtn");
+
+messageBtn.addEventListener("click", messagePage);
+
+function messagePage(){
+
+  document.getElementById("dashboard").style.display =
+  "none";
+
+  document.getElementById("messagePage").style.display =
+  "block";
+
+}
+
+function back(){
+
+  document.getElementById("dashboard").style.display =
+  "block";
+
+  document.getElementById("projectPage").style.display =
+  "none";
+
+  document.getElementById("taskPage").style.display =
+  "none";
+
+  document.getElementById("messagePage").style.display =
+  "none";
+
+}
+
+let aboutBtn =
+document.getElementById("aboutBtn");
+
+aboutBtn.addEventListener("click", aboutPage);
+
+function aboutPage(){
+
+  document.getElementById("loginBox").style.display =
+  "none";
+
+  document.getElementById("dashboard").style.display =
+  "none";
+
+  document.getElementById("aboutPage").style.display =
+  "block";
+
+}
+
+function aboutBack(){
+
+  document.getElementById("aboutPage").style.display =
+  "none";
+
+  document.getElementById("loginBox").style.display =
+  "block";
+
+}
+
+</script>
+
+</body>
+
+</html>
